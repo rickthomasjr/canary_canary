@@ -1,0 +1,8 @@
+%h3=@product.name
+.row
+  .span4
+    =image_tag("http://www.candywarehouse.com/#{@product.image}")
+  .span3
+    %p=@product.description.html_safe
+  .span2
+    %p=cart_form(@product)

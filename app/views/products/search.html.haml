@@ -1,0 +1,14 @@
+.page-header
+%h3
+  Search Results
+  .small "#{@products.count} results found."
+
+
+-@products.each_slice(3) do |products|
+  .row
+    -products.each do |product|
+      .span3
+        .image
+          =link_to image_tag("http://www.candywarehouse.com/#{product.image}", class: 'thumbnail'), product
+        .name
+          =link_to product.name, product

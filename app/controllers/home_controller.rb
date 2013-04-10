@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
+    @products1 = Product.home_page_products
+    @products2 = Product.home_page_products
+    @products3 = Product.home_page_products
   end
 end

@@ -14,4 +14,8 @@
         = link_to 'Admin', users_path
   - else
     %li
-      = link_to 'Sign up', new_user_registration_path
+      = link_to 'Register', new_user_registration_path
+  %li
+    = cart_link
+= form_tag '/search', :class => "navbar-search pull-right", :method => :get do
+  = text_field_tag :q, nil, :class => "search-query span3", :placeholder => "Search"

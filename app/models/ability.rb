@@ -6,6 +6,10 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     end
+    can :manage, Piggybak.config.manage_classes.map(&:constantize)
+    Piggybak.config.extra_abilities.each do |extra_ability|
+      can extra_ability[:abilities], extra_ability[:class_name].constantize
+    end
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
