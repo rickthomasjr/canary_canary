@@ -32,3 +32,4 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "rails_admin_nestable", git: "git://github.com/dalpo/rails_admin_nestable.git"
 gem "httparty"
 gem 'certified'
+gem 'seed_dump'
