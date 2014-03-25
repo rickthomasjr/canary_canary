@@ -2,12 +2,14 @@
 %html
   %head
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-      %title= content_for?(:title) ? yield(:title) : "Canary Canary"
-      %meta{:content => content_for?(:description) ? yield(:description) : "Canary Canary", :name => "description"}
-        = stylesheet_link_tag "application", :media => "all"
-        = javascript_include_tag "application"
-        = csrf_meta_tags
-        = yield(:head)
+    %title= content_for?(:title) ? yield(:title) : "Canary Canary"
+    = javascript_include_tag "http://files.igodigital.com/guided-search/canary_828_v2/igdgs.js"
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = javascript_include_tag "http://canary_828_v2.collect.igodigital.com/igdrta.js"
+    = csrf_meta_tags
+    = yield(:head)
+    
   %body{:class => "#{controller_name} #{action_name}"}
     .navbar.navbar-fixed-top
       %nav.navbar-inner
@@ -21,6 +23,22 @@
           .span9
             = render 'layouts/messages'
             = yield
+      :javascript
+        var rtaOrganization = 'canary_828_v2';
+        var rtaProductSKU = '#{@product ? @product.id : ''}';
+        var rtaCart = '';
+        var rtaEmail = '';
+        var rtaConvertCart = '';
+        var rtaOrderNum = '';
+        var rtaCartAmounts = '';
+        var rtaCartQuantities = '';
+        var rtaReportingSegment1 = '';
+        var rtaReportingSegment2 = '';
+        var rtaRating = '';
+        var rtaSearch = '';
+        var rtaCategory = '';
+        var rtaSpecial = '';
+        addLoadEvent(function() {callRTA();});
       %footer
       / ! end of .container
     / ! end of #main

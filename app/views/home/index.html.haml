@@ -6,32 +6,38 @@
   %ul.nav.nav-tabs
     %li.active
       %a{href: '#tab1', "data-toggle"=>"tab"}
-        What's New
+        Just for you
     %li
       %a{href: '#tab2', "data-toggle"=>"tab"}
-        Top Sellers
+        What's New
     %li
       %a{href: '#tab3', "data-toggle"=>"tab"}
+        Top Sellers
+    %li
+      %a{href: '#tab4', "data-toggle"=>"tab"}
         Great Buys
   .tab-content
     .tab-pane.active#tab1
+      #igdrec_1
+    .tab-pane.active#tab2
       -@products1.each do |product|
         .span3
           .image
-            =link_to image_tag("http://www.candywarehouse.com/#{product.image}", class: 'thumbnail'), product
-          .name
-            =link_to product.name, product
-    .tab-pane#tab2
-      -@products2.each do |product|
-        .span3
-          .image
-            =link_to image_tag("http://www.candywarehouse.com/#{product.image}", class: 'thumbnail'), product
+            =link_to image_tag(product.image, class: 'thumbnail'), product
           .name
             =link_to product.name, product
     .tab-pane#tab3
+      -@products2.each do |product|
+        .span3
+          .image
+            =link_to image_tag(product.image, class: 'thumbnail'), product
+          .name
+            =link_to product.name, product
+    .tab-pane#tab4
       -@products3.each do |product|
         .span3
           .image
-            =link_to image_tag("http://www.candywarehouse.com/#{product.image}", class: 'thumbnail'), product
+            =link_to image_tag(product.image, class: 'thumbnail'), product
           .name
             =link_to product.name, product
+=javascript_include_tag "http://canary_820.qa.recs.igodigital.com/a/v2/canary_820/home/recommend.js"

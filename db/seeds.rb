@@ -19,14 +19,14 @@ user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => EN
 puts 'user: ' << user.name
 user.add_role :admin
 
-CSV.foreach("db/candy.csv", {:col_sep => "|", :headers => true}) do |csv|
+CSV.foreach("db/candy.psv", {:col_sep => "|", :headers => true}) do |csv|
   category = Category.find_or_create_by_name(csv['Category'])
-  p = Product.find_or_create_by_code(csv['Code'])
+  p = Product.find_or_create_by_code(csv['ID'])
   p.name = csv['Name']
   p.description = csv['Description']
   p.price = csv['Price']
-  p.sale_price = csv['Sale Price']
-  p.image = csv['Image']
+  p.sale_price = csv['SalePrice']
+  p.image = csv['ImageLink']
   p.categories << category unless p.categories.include? category
   p.save
   p.piggybak_sellable.destroy if p.piggybak_sellable

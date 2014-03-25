@@ -3,6 +3,6 @@
     -products.each do |product|
       .span3
         .image
-          =link_to image_tag("http://www.candywarehouse.com/#{product.image}", class: 'thumbnail'), product
+          =link_to image_tag(product.image, class: 'thumbnail'), product
         .name
           =link_to product.name, product

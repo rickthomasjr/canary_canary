@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404210335) do
+ActiveRecord::Schema.define(:version => 20140325201822) do
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname",  :null => false
@@ -68,19 +68,19 @@ ActiveRecord::Schema.define(:version => 20130404210335) do
   end
 
   create_table "orders", :force => true do |t|
-    t.integer  "billing_address_id",                                                                   :null => false
-    t.integer  "shipping_address_id",                                                                  :null => false
+    t.integer  "billing_address_id",                                                    :null => false
+    t.integer  "shipping_address_id",                                                   :null => false
     t.integer  "user_id"
-    t.string   "email",                                                                                :null => false
-    t.string   "phone",                                                                                :null => false
-    t.decimal  "total",                              :precision => 10, :scale => 2,                    :null => false
-    t.decimal  "total_due",                          :precision => 10, :scale => 2,                    :null => false
-    t.string   "status",                                                                               :null => false
-    t.datetime "created_at",                                                                           :null => false
-    t.datetime "updated_at",                                                                           :null => false
+    t.string   "email",                                                                 :null => false
+    t.string   "phone",                                                                 :null => false
+    t.decimal  "total",               :precision => 10, :scale => 2,                    :null => false
+    t.decimal  "total_due",           :precision => 10, :scale => 2,                    :null => false
+    t.string   "status",                                                                :null => false
+    t.datetime "created_at",                                                            :null => false
+    t.datetime "updated_at",                                                            :null => false
     t.string   "ip_address"
-    t.text     "user_agent",          :limit => 255
-    t.boolean  "to_be_cancelled",                                                   :default => false
+    t.text     "user_agent"
+    t.boolean  "to_be_cancelled",                                    :default => false
   end
 
   create_table "payment_method_values", :force => true do |t|
@@ -119,8 +119,8 @@ ActiveRecord::Schema.define(:version => 20130404210335) do
   add_index "product_categories", ["product_id"], :name => "index_product_categories_on_product_id"
 
   create_table "products", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
+    t.text     "name"
+    t.text     "description"
     t.decimal  "price"
     t.decimal  "sale_price"
     t.string   "code"

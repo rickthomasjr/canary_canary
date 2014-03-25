@@ -1,7 +1,23 @@
+:javascript
+  var rtaRetailer = 'candy_724_v3';
+  var rtaProductSKU = '';
+  var rtaCart = '#{@product.id}';
+  var rtaEmail = '';
+  var rtaConvertCart = '';
+  var rtaOrderNum = '';
+  var rtaCartAmounts = '';
+  var rtaCartQuantities = '';
+  var rtaReportingSegment1 = '';
+  var rtaReportingSegment2 = '';
+  var rtaRating = '';
+  var rtaSearch = '';
+  var rtaCategory = '';
+  var rtaSpecial = '';
+  addLoadEvent(function() {callRTA();});
 %h3=@product.name
 .row
   .span4
-    =image_tag("http://www.candywarehouse.com/#{@product.image}")
+    =image_tag(@product.image)
   .span3
     %p=@product.description.html_safe
   .span2

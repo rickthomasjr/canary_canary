@@ -13,4 +13,12 @@ class Product < ActiveRecord::Base
     end
     products
   end
+
+  def image_link
+    "http://www.candywarehouse.com/#{self.image}"
+  end
+
+  def link
+    "http://canary.dev/products/#{self.id}"
+  end
 end
